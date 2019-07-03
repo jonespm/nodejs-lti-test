@@ -22,7 +22,10 @@ app.post('/launch_lti', function(req, res, next){
  
   req.body = _.omit(req.body, '__proto__');
   	if (req.body['oauth_consumer_key']===ltiKey){
+        //Adding encrypted
+        req.connection.encrypted = true;
   		var provider = new lti.Provider(ltiKey, ltiSecret);
+        
   	   //Check is the Oauth  is valid.
   			provider.valid_request(req, function (err, isValid){
   				if (err) {
