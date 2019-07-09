@@ -40,7 +40,7 @@ app.post('/launch_lti', function(req, res, next){
 			         } 
 			      else {
 		        	  //User is Auth so pass back when ever we need.
-			    	  res.render('start', { title: 'LTI SETTINGS', CurrentTime: Math.round(Date.now() / 1000), CourseID: 'CourseID: '+req.body['context_id'], userID: 'UserID: '+req.body['user_id'], UserRole: 'Course Role: '+req.body['roles'], FulllogTitle: 'Full Log: ', Fulllog: JSON.stringify(req.body) });
+			    	  res.render('start', { title: 'LTI SETTINGS', currentTime: Math.round(Date.now() / 1000), courseID: req.body['context_id'], userID: req.body['user_id'], UserRole: req.body['roles'], FulllogTitle: 'Full Log: ', Fulllog: JSON.stringify(req.body) });
 			}}
 	   });
 	}
